@@ -1,5 +1,5 @@
 ---
-name: Build and push container images
+name: Container images - Build and push
 
 "on":
   push:
