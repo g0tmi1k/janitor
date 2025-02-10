@@ -123,7 +123,6 @@ dev = [
     "testing.postgresql",
 ]
 debian = [
-    "python_apt",
     "python_debian",
     "silver-platter[debian]",
     "ognibuild[debian,dep_server]",

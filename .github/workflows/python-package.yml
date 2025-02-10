@@ -69,7 +69,6 @@ env:
             sbuild
             ssh
             subversion
-           #python3-apt # Skipping due to PIP install
 
 jobs:
   checks:
@@ -149,11 +148,6 @@ jobs:
             ${CORE_DEB}
           sudo apt-get satisfy --yes --no-install-recommends \
             ${EXTRA_DEB}
-      - name: Install dependencies (pip)
-        run: |
-          set -x
-          pip install --break-system-packages --upgrade \
-            python_apt@git+https://salsa.debian.org/apt-team/python-apt.git
       - name: Install dependencies (rust)
         run: |
           set -x
