@@ -1,6 +1,8 @@
 DOCKER_TAG ?= latest
 PYTHON ?= python3
 
+SHA = $(shell git rev-parse HEAD)
+
 core: py/janitor/site/_static/pygments.css build-inplace
 
 build-inplace:
@@ -71,8 +73,6 @@ py/janitor/site/_static/pygments.css:
 	pygmentize -S default -f html > $@
 
 clean:
-
-SHA=$(shell git rev-parse HEAD)
 
 docker-%: core
 	buildah build --no-cache -t ghcr.io/jelmer/janitor/$*:$(DOCKER_TAG) -t ghcr.io/jelmer/janitor/$*:$(SHA) -f Dockerfile_$* .
