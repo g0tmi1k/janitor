@@ -203,6 +203,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      # Due to PyPi's gpg v1.10.0 needing libgpgme-dev < 1.18.0-3
+      - name: Install PyPi GPG backward compatibility hacks
+        run: |
+          set -x
+          mkdir -pv "$HOME/.local/bin"
+          cp -vr ./scripts/* "$HOME/.local/bin/"
+          echo "$HOME/.local/bin" | tee -a $GITHUB_PATH
+
       - name: Install dependencies (apt)
         run: |
           set -x
