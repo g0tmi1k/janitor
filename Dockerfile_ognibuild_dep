@@ -32,16 +32,12 @@ RUN apt-get update --yes \
 FROM docker.io/debian:testing-slim AS build
 MAINTAINER Jelmer Vernooij <jelmer@jelmer.uk>
 
-# Enable forward compatibility with newer versions of Python
-ENV PYO3_USE_ABI3_FORWARD_COMPATIBILITY="1"
-
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update --yes \
  && apt-get install --yes --no-install-recommends \
         auto-apt-proxy \
         iproute2 \
- && apt-get upgrade --yes \
  && apt-get satisfy --yes --no-install-recommends \
        ## Standard packages: ./CONTRIBUTING.md
         cargo \
@@ -53,18 +49,40 @@ RUN apt-get update --yes \
        ## Extra packages
         git \
         libpython3-dev \
+ && apt-get clean \
+ && git clone https://github.com/jelmer/ognibuild.git /build/ognibuild/ \
+ && cd /build/ognibuild/ \
+ && cargo build --verbose --release #-p dep-server
+
+
+
+# https://hub.docker.com/_/debian
+FROM docker.io/debian:testing-slim
+MAINTAINER Jelmer Vernooij <jelmer@jelmer.uk>
+
+# Enable forward compatibility with newer versions of Python
+ENV PYO3_USE_ABI3_FORWARD_COMPATIBILITY="1"
+
+ARG DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update --yes \
+ && apt-get install --yes --no-install-recommends \
+        auto-apt-proxy \
+        iproute2 \
+ && apt-get upgrade --yes \
+ && apt-get satisfy --yes --no-install-recommends \
+       ## Extra packages
         python3-breezy \
  && apt-get clean \
  && rm -rf /usr/share/aclocal
 
+## Due to PyPi's gpg v1.10.0 needing libgpgme-dev < 1.18.0-3
 COPY ./scripts/ /usr/local/bin/
 
 COPY --from=m4 /usr/share/aclocal /usr/share/aclocal
 
-RUN git clone https://github.com/jelmer/ognibuild.git /build/ognibuild/ \
- && cd /build/ognibuild/ \
- && cargo build --verbose --release -p ognibuild
+COPY --from=build /build/ognibuild/target/release/ /usr/local/bin/
 
 EXPOSE 9934
 
-ENTRYPOINT ["/build/ognibuild/target/release/ognibuild-deb", "--port=9934", "--listen-address=0.0.0.0"]
+ENTRYPOINT ["dep-server", "--port=9934", "--listen-address=0.0.0.0"]

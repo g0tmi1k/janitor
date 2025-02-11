@@ -16,6 +16,7 @@ MAINTAINER Jelmer Vernooij <jelmer@jelmer.uk>
 
 ARG DEBIAN_FRONTEND=noninteractive
 
+# Due to PyPi's gpg v1.10.0 needing libgpgme-dev < 1.18.0-3
 COPY ./scripts/ /usr/local/bin/
 
 COPY . /code
@@ -27,16 +28,15 @@ RUN apt-get update --yes \
         auto-apt-proxy \
         iproute2 \
  && apt-get satisfy --yes --no-install-recommends \
-        build-essential \
-        ca-certificates \
+       ## Standard packages: ./CONTRIBUTING.md
         cargo \
-        libclang-dev \
-        libpython3-dev \
+        libgpgme-dev \
         libssl-dev \
-        libtdb-dev \
         pkg-config \
         protobuf-compiler \
-        python3 \
+        python3-pip \
+       ## Extra packages
+        libpython3-dev \
  && apt-get clean \
  && cd /code \
  && cargo build --verbose --release -p janitor-worker
@@ -56,13 +56,6 @@ RUN apt-get update --yes \
         iproute2 \
  && apt-get upgrade --yes \
  && apt-get satisfy --yes --no-install-recommends \
-       ## Standard packages: ./CONTRIBUTING.md
-        cargo \
-        libgpgme-dev \
-        libssl-dev \
-        pkg-config \
-        protobuf-compiler \
-        python3-pip \
        ## Extra packages
         apt-file \
         libpython3-dev \

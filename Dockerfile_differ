@@ -36,6 +36,7 @@ RUN apt-get update --yes \
         libpython3-dev \
  && apt-get clean
 
+# Due to PyPi's gpg v1.10.0 needing libgpgme-dev < 1.18.0-3
 COPY ./scripts/ /usr/local/bin/
 
 COPY . /code
