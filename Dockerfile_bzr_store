@@ -11,7 +11,7 @@
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # https://hub.docker.com/_/debian
-FROM docker.io/debian:testing-slim AS build
+FROM docker.io/rust:slim-bullseye AS build
 MAINTAINER Jelmer Vernooij <jelmer@jelmer.uk>
 
 # Enable forward compatibility with newer versions of Python
@@ -37,11 +37,11 @@ RUN apt-get update --yes \
  && apt-get clean
 
 # Due to PyPi's gpg v1.10.0 needing libgpgme-dev < 1.18.0-3
-COPY ./scripts/ /usr/local/bin/
+#COPY ./scripts/ /usr/local/bin/
 
 COPY . /code
 
-RUN pip3 install --break-system-packages --upgrade "/code[gcp,bzr_store]" \
+RUN pip3 install --upgrade "/code[gcp,bzr_store]" \
  && rm -rf /code
 
 VOLUME /bzr
