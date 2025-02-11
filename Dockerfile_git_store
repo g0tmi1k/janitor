@@ -1,12 +1,12 @@
 # Pull (Pre-Built):
-#   $ docker pull ghcr.io/jelmer/janitor/git_store:latest
+#   $ docker pull ghcr.io/g0tmi1k/janitor/git_store:wip
 # Build:
 #   $ docker build -t janitor/git_store:latest -f Dockerfile_git_store .
 # Run:
-#   $ docker run --rm --publish 9923:9923 --name janitor-git_store --volume $( pwd ):/mnt/janitor ghcr.io/jelmer/janitor/git_store:latest --config /mnt/janitor/janitor.conf.example
+#   $ docker run --rm --publish 9923:9923 --name janitor-git_store --volume $( pwd ):/mnt/janitor ghcr.io/g0tmi1k/janitor/git_store:wip --config /mnt/janitor/janitor.conf.example
 #   $ docker run --rm --publish 9923:9923 --name janitor-git_store --volume $( pwd ):/mnt/janitor janitor/git_store:latest --config /mnt/janitor/janitor.conf.example
 # Troubleshoot:
-#   $ docker run -it --rm -p 9923:9923 --entrypoint=/bin/bash ghcr.io/jelmer/janitor/git_store:latest
+#   $ docker run -it --rm -p 9923:9923 --entrypoint=/bin/bash ghcr.io/g0tmi1k/janitor/git_store:wip
 #   $ docker run --interactive --tty --rm --publish 9923:9923 --entrypoint=/bin/bash --volume $( pwd ):/mnt/janitor --workdir /mnt/janitor janitor/git_store:latest
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

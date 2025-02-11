@@ -1,12 +1,12 @@
 # Pull (Pre-Built):
-#   $ docker pull ghcr.io/jelmer/janitor/site:latest
+#   $ docker pull ghcr.io/g0tmi1k/janitor/site:wip
 # Build:
 #   $ docker build -t janitor/site:latest -f Dockerfile_site .
 # Run:
-#   $ docker run --rm --publish 8082:8082 --name janitor-site ghcr.io/jelmer/janitor/site:latest
+#   $ docker run --rm --publish 8082:8082 --name janitor-site ghcr.io/g0tmi1k/janitor/site:wip
 #   $ docker run --rm --publish 8082:8082 --name janitor-site janitor/site:latest
 # Troubleshoot:
-#   $ docker run -it --rm -p 8082:8082 --entrypoint=/bin/bash ghcr.io/jelmer/janitor/site:latest
+#   $ docker run -it --rm -p 8082:8082 --entrypoint=/bin/bash ghcr.io/g0tmi1k/janitor/site:wip
 #   $ docker run --interactive --tty --rm --publish 8082:8082 --entrypoint=/bin/bash --volume $( pwd ):/mnt/janitor --workdir /mnt/janitor janitor/site:latest
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # TODO: config

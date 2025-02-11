@@ -3,8 +3,8 @@ name: Container images - Build and push
 
 "on":
   push:
-    branches:
-      - main
+    #branches:
+    #  - main
   schedule:
     - cron: '0 6 * * *'  # Daily 6AM UTC build
 

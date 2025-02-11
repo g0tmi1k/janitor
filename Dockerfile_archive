@@ -1,12 +1,12 @@
 # Pull (Pre-Built):
-#   $ docker pull ghcr.io/jelmer/janitor/archive:latest
+#   $ docker pull ghcr.io/g0tmi1k/janitor/archive:wip
 # Build:
 #   $ docker build -t janitor/archive:latest -f Dockerfile_archive .
 # Run:
-#   $ docker run --rm --publish 9914:9914 --name janitor-archive ghcr.io/jelmer/janitor/archive:latest
+#   $ docker run --rm --publish 9914:9914 --name janitor-archive ghcr.io/g0tmi1k/janitor/archive:wip
 #   $ docker run --rm --publish 9914:9914 --name janitor-archive janitor/archive:latest
 # Troubleshoot:
-#   $ docker run -it --rm -p 9914:9914 --entrypoint=/bin/bash ghcr.io/jelmer/janitor/archive:latest
+#   $ docker run -it --rm -p 9914:9914 --entrypoint=/bin/bash ghcr.io/g0tmi1k/janitor/archive:wip
 #   $ docker run --interactive --tty --rm --publish 9914:9914 --entrypoint=/bin/bash --volume $( pwd ):/mnt/janitor --workdir /mnt/janitor janitor/archive:latest
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

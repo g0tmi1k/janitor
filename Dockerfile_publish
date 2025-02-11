@@ -1,12 +1,12 @@
 # Pull (Pre-Built):
-#   $ docker pull ghcr.io/jelmer/janitor/publish:latest
+#   $ docker pull ghcr.io/g0tmi1k/janitor/publish:wip
 # Build:
 #   $ docker build -t janitor/publish:latest -f Dockerfile_publish .
 # Run:
-#   $ docker run --rm --publish 9912:9912 --name janitor-publish ghcr.io/jelmer/janitor/publish:latest
+#   $ docker run --rm --publish 9912:9912 --name janitor-publish ghcr.io/g0tmi1k/janitor/publish:wip
 #   $ docker run --rm --publish 9912:9912 --name janitor-publish janitor/publish:latest
 # Troubleshoot:
-#   $ docker run -it --rm -p 9912:9912 --entrypoint=/bin/bash ghcr.io/jelmer/janitor/publish:latest bash
+#   $ docker run -it --rm -p 9912:9912 --entrypoint=/bin/bash ghcr.io/g0tmi1k/janitor/publish:wip bash
 #   $ docker run --interactive --tty --rm --publish 9912:9912 --entrypoint=/bin/bash --volume $( pwd ):/mnt/janitor --workdir /mnt/janitor janitor/publish:latest
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

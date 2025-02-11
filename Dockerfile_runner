@@ -1,12 +1,12 @@
 # Pull (Pre-Built):
-#   $ docker pull ghcr.io/jelmer/janitor/runner:latest
+#   $ docker pull ghcr.io/g0tmi1k/janitor/runner:wip
 # Build:
 #   $ docker build -t janitor/runner:latest -f Dockerfile_runner .
 # Run:
-#   $ docker run --rm --publish 9911:9911 --name janitor-runner --volume $( pwd ):/mnt/janitor ghcr.io/jelmer/janitor/runner:latest --config /mnt/janitor/janitor.conf.example
+#   $ docker run --rm --publish 9911:9911 --name janitor-runner --volume $( pwd ):/mnt/janitor ghcr.io/g0tmi1k/janitor/runner:wip --config /mnt/janitor/janitor.conf.example
 #   $ docker run --rm --publish 9911:9911 --name janitor-runner --volume $( pwd ):/mnt/janitor janitor/runner:latest --config /mnt/janitor/janitor.conf.example
 # Troubleshoot:
-#   $ docker run -it --rm -p 9911:9911 --entrypoint=/bin/bash ghcr.io/jelmer/janitor/runner:latest
+#   $ docker run -it --rm -p 9911:9911 --entrypoint=/bin/bash ghcr.io/g0tmi1k/janitor/runner:wip
 #   $ docker run --interactive --tty --rm --publish 9911:9911 --entrypoint=/bin/bash --volume $( pwd ):/mnt/janitor --workdir /mnt/janitor janitor/runner:latest
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

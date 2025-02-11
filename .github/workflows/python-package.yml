@@ -3,6 +3,8 @@ name: Python package - Check, build and test
 
 "on":
   push:
+    branches:
+      - main
   pull_request:
   schedule:
     - cron: '0 6 * * *'    # Daily 6AM UTC build

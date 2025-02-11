@@ -1,12 +1,12 @@
 # Pull (Pre-Built):
-#   $ docker pull ghcr.io/jelmer/janitor/worker:latest
+#   $ docker pull ghcr.io/g0tmi1k/janitor/worker:wip
 # Build:
 #   $ docker build -t janitor/worker:latest -f Dockerfile_worker .
 # Run:
-#   $ docker run --rm --publish 8080:8080 --name janitor-worker ghcr.io/jelmer/janitor/worker:latest
+#   $ docker run --rm --publish 8080:8080 --name janitor-worker ghcr.io/g0tmi1k/janitor/worker:wip
 #   $ docker run --rm --publish 8080:8080 --name janitor-worker janitor/worker:latest
 # Troubleshoot:
-#   $ docker run -it --rm -p 8080:8080 --entrypoint=/bin/bash ghcr.io/jelmer/janitor/worker:latest
+#   $ docker run -it --rm -p 8080:8080 --entrypoint=/bin/bash ghcr.io/g0tmi1k/janitor/worker:wip
 #   $ docker run --interactive --tty --rm --publish 8080:8080 --entrypoint=/bin/bash --volume $( pwd ):/mnt/janitor --workdir /mnt/janitor janitor/worker:latest
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

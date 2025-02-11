@@ -1,12 +1,12 @@
 # Pull (Pre-Built):
-#   $ docker pull ghcr.io/jelmer/janitor/ognibuild_dep:latest
+#   $ docker pull ghcr.io/g0tmi1k/janitor/ognibuild_dep:wip
 # Build:
 #   $ docker build -t janitor/ognibuild_dep:latest -f Dockerfile_ognibuild_dep .
 # Run:
-#   $ docker run --rm --publish 9934:9934 --name janitor-ognibuild_dep ghcr.io/jelmer/janitor/ognibuild_dep:latest
+#   $ docker run --rm --publish 9934:9934 --name janitor-ognibuild_dep ghcr.io/g0tmi1k/janitor/ognibuild_dep:wip
 #   $ docker run --rm --publish 9934:9934 --name janitor-ognibuild_dep janitor/ognibuild_dep:latest
 # Troubleshoot:
-#   $ docker run -it --rm -p 9934:9934 --entrypoint=/bin/bash ghcr.io/jelmer/janitor/ognibuild_dep:latest
+#   $ docker run -it --rm -p 9934:9934 --entrypoint=/bin/bash ghcr.io/g0tmi1k/janitor/ognibuild_dep:wip
 #   $ docker run --interactive --tty --rm --publish 9934:9934 --entrypoint=/bin/bash --volume $( pwd ):/mnt/janitor --workdir /mnt/janitor janitor/ognibuild_dep:latest
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
