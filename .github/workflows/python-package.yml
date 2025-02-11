@@ -84,25 +84,25 @@ jobs:
         if: always()
         run: |
           set -x
-          pip install --break-system-packages --upgrade \
+          pip3 install --break-system-packages --upgrade \
             ruff
-          make ruff PYTHON=python
+          make ruff PYTHON=python3
 
       - name: HTML style checks (djLint)
         if: always()
         run: |
           set -x
-          pip install --break-system-packages --upgrade \
+          pip3 install --break-system-packages --upgrade \
             djlint
-          make djlint PYTHON=python
+          make djlint PYTHON=python3
 
       - name: YAML style checks (yamllint)
         if: always()
         run: |
           set -x
-          pip install --break-system-packages --upgrade \
+          pip3 install --break-system-packages --upgrade \
             yamllint
-          make yamllint PYTHON=python
+          make yamllint PYTHON=python3
 
       - name: Rust style checks (rustfmt)
         if: always()
@@ -117,7 +117,7 @@ jobs:
         if: always()
         run: |
           set -x
-          pip install --break-system-packages --upgrade \
+          pip3 install --break-system-packages --upgrade \
             codespell
           codespell
 
@@ -171,20 +171,20 @@ jobs:
       - name: PIP install & setup
         run: |
           set -x
-          pip install --break-system-packages --upgrade --editable \
+          pip3 install --break-system-packages --upgrade --editable \
             .[dev,debian]
-          python setup.py develop
-          python setup.py build_ext -i
+          python3 setup.py develop
+          python3 setup.py build_ext -i
 
       - name: Make
         run: |
           set -x
-          make PYTHON=python
+          make PYTHON=python3
 
       - name: Make all
         run: |
           set -x
-          make all PYTHON=python
+          make all PYTHON=python3
 
   build-container:
     name: Debian-testing
