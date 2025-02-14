@@ -68,8 +68,8 @@ requires-python = ">=3.9"
 dependencies = [
     "aiohttp",
     "aiohttp-apispec",
-    "aiohttp-openmetrics",
     "aiohttp-jinja2",
+    "aiohttp-openmetrics",
     "aiojobs",
     "aioredlock",
     "aiozipkin",
@@ -123,6 +123,26 @@ runner = [
 # Janitor service (./Dockerfile_site)
 site = [
     "python-debian",
+]
+
+# Build ($ make)
+make = [
+    "setuptools-protobuf",
+    "setuptools-rust",
+]
+
+# unittest ($ make test)
+test = [
+    "fakeredis",
+    "pytest",
+    "pytest-aiohttp",
+    "pytest-asyncio",
+    "pytest-cov",
+    "python-debian",
+    "setuptools-protobuf",
+    "setuptools-rust",
+    "testing.postgresql",
+    "testtools",
 ]
 
 # Development (./CONTRIBUTING.md)
