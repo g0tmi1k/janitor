@@ -68,8 +68,8 @@ requires-python = ">=3.9"
 dependencies = [
     "aiohttp",
     "aiohttp-apispec",
-    "aiohttp-openmetrics",
     "aiohttp-jinja2",
+    "aiohttp-openmetrics",
     "aiojobs",
     "aioredlock",
     "aiozipkin",
@@ -95,17 +95,72 @@ file = "README.md"
 content-type = "text/markdown"
 
 [project.optional-dependencies]
+# Janitor service (./Dockerfile_archive)
+archive = [
+    "python-debian",
+]
+# Janitor service (./Dockerfile_bzr_store)
+bzr_store = [
+    "loggerhead",
+    "python-debian",
+]
+# Janitor service (./Dockerfile_differ)
+differ = [
+    "python-debian",
+]
+# Janitor service (./Dockerfile_git_store)
+git_store = [
+    "aiohttp-wsgi",
+    "klaus@git+https://github.com/jonashaag/klaus",
+    "python-debian",
+]
+# Janitor service (./Dockerfile_publish)
+publish = []
+# Janitor service (./Dockerfile_runner)
+runner = [
+    "python-debian",
+]
+# Janitor service (./Dockerfile_site)
+site = [
+    "python-debian",
+]
+
+# Build ($ make)
+make = [
+    "setuptools-protobuf",
+    "setuptools-rust",
+]
+
+# unittest ($ make test)
+test = [
+    "fakeredis",
+    "pytest",
+    "pytest-aiohttp",
+    "pytest-asyncio",
+    "pytest-cov",
+    "python-debian",
+    "setuptools-protobuf",
+    "setuptools-rust",
+    "testing.postgresql",
+    "testtools",
+]
+
+# Development (./CONTRIBUTING.md)
 dev = [
+    "aiohttp-wsgi",
     "boto3",
     "djlint",
     "fakeredis",
     "gcloud-aio-storage",
     "google-cloud-logging",
+    "klaus@git+https://github.com/jonashaag/klaus",
+    "loggerhead",
     "mock",
     "mypy",
     "pytest",
     "pytest-aiohttp",
     "pytest-cov",
+    "python-debian",
     "python-subunit",
     "ruff==0.9.6",
     "setuptools-protobuf",
@@ -122,27 +177,23 @@ dev = [
     "types-redis",
     "yamllint",
 ]
+
 debian = [
     "brz-debian@git+https://github.com/breezy-team/breezy-debian",
     "iniparse",
     "ognibuild[debian,dep_server]",
     "python-debian",
-    "python_apt",
     "silver-platter[debian]",
 ]
+
+# Google Cloud Platform
 gcp = [
     "gcloud-aio-storage",
     "google-cloud-logging",
 ]
+
 s3 = [
     "boto3",
-]
-git_web = [
-    "aiohttp-wsgi",
-    "klaus@git+https://github.com/jonashaag/klaus",
-]
-bzr_web = [
-    "loggerhead",
 ]
 
 [project.scripts]
